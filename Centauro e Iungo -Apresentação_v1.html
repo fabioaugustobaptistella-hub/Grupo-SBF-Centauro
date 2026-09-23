@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iungo · Proposta Executiva Centauro</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#050816;font-family:'Inter',sans-serif;overflow:hidden;}
+h1,h2,h3{color:#F5F7FB;}
+h1{font-weight:900;letter-spacing:-.03em;line-height:1.08;}
+h2{font-weight:800;letter-spacing:-.025em;line-height:1.12;}
+h3{font-weight:700;letter-spacing:-.015em;}
+p,span,li{font-weight:400;line-height:1.6;color:#AAB3C5;}
+
+.presentation{width:100vw;height:100vh;overflow:hidden;position:relative;}
+.slides{display:flex;height:100%;transition:transform .7s cubic-bezier(.22,1,.36,1);}
+.slide{
+  width:100vw;height:100vh;flex-shrink:0;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding:60px 80px;
+}
+.slide::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(900px 420px at 72% 18%, rgba(255,120,180,.14) 0%, transparent 42%),
+    radial-gradient(800px 380px at 35% 20%, rgba(35,110,255,.14) 0%, transparent 42%),
+    linear-gradient(180deg, #0A0F24 0%, #070B1D 45%, #050816 100%);
+}
+.slide::after{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.3;
+  background-image:radial-gradient(rgba(255,255,255,.06) .8px, transparent .8px);
+  background-size:24px 24px;
+}
+.slide>*{position:relative;z-index:1;}
+
+.gt{
+  background:linear-gradient(135deg,#2E6BFF 0%,#C86DD7 50%,#2E6BFF 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 4s linear infinite;
+}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+
+.gl{width:90px;height:4px;border-radius:2px;background:linear-gradient(90deg,#2E6BFF,#C86DD7);margin-bottom:22px;animation:lineG .8s ease both;transform-origin:left;}
+.gl.ce{margin:0 auto 22px auto;transform-origin:center;}
+@keyframes lineG{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+.card{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  border-radius:22px;box-shadow:0 16px 48px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.04);
+  padding:32px 28px;backdrop-filter:blur(8px);transition:all .4s ease;
+}
+.card:hover{border-color:rgba(46,107,255,.2);transform:translateY(-3px);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 30px rgba(46,107,255,.08);}
+
+.cp{
+  background:linear-gradient(145deg, rgba(18,11,43,.95) 0%, rgba(10,15,36,.98) 55%, rgba(5,8,22,1) 100%);
+  border:1px solid rgba(255,255,255,.08);border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 40px rgba(46,107,255,.08);
+  padding:34px 30px;backdrop-filter:blur(10px);transition:all .4s ease;
+}
+.cp:hover{border-color:rgba(46,107,255,.25);transform:translateY(-3px) scale(1.01);box-shadow:0 28px 64px rgba(0,0,0,.55),0 0 50px rgba(46,107,255,.12);}
+
+.badge{
+  display:inline-flex;align-items:center;gap:10px;padding:10px 24px;border-radius:999px;margin-bottom:32px;
+  background:rgba(46,107,255,.08);border:1px solid rgba(46,107,255,.2);
+  font-size:14px;font-weight:600;color:#8FAEFF;letter-spacing:.05em;text-transform:uppercase;
+}
+
+.tn{
+  width:72px;height:72px;border-radius:18px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:900;color:#fff;animation:glowP 3s ease-in-out infinite;flex-shrink:0;
+}
+.tn.n1{background:linear-gradient(145deg,#2E6BFF,#1E56D9);}
+.tn.n2{background:linear-gradient(145deg,#5B3FD6,#4530B3);animation-delay:.5s;}
+.tn.n3{background:linear-gradient(145deg,#C86DD7,#A854BF);animation-delay:1s;}
+.tn.n4{background:linear-gradient(145deg,#2E6BFF,#5B3FD6);animation-delay:1.5s;}
+@keyframes glowP{0%,100%{box-shadow:0 0 18px rgba(46,107,255,.12)}50%{box-shadow:0 0 36px rgba(46,107,255,.3)}}
+
+.ic{width:54px;height:54px;border-radius:14px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;background:rgba(46,107,255,.08);}
+.ic svg{width:26px;height:26px;color:#2E6BFF;}
+
+.s5c{position:relative;overflow:hidden;}
+.s5c::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;border-radius:2px 0 0 2px;}
+
+.s5n{font-size:52px;font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:8px;}
+
+.fl{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
+.fs{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:140px;padding:0 8px;}
+.fs .fi{width:76px;height:76px;border-radius:20px;background:rgba(46,107,255,.08);border:1px solid rgba(46,107,255,.18);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.fs .fi svg{width:34px;height:34px;color:#2E6BFF;}
+.fs span{font-size:14px;font-weight:600;color:#F5F7FB;}
+.fa{display:flex;align-items:center;padding-bottom:30px;margin:0 6px;}
+.fa svg{width:26px;height:26px;color:#7E879B;}
+.fs.act .fi{background:linear-gradient(180deg,#2E6BFF,#1E56D9);border-color:transparent;box-shadow:0 10px 22px rgba(46,107,255,.28);}
+.fs.act .fi svg{color:#fff;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+.slide.active .au{animation:fadeUp .7s ease both;}
+.slide.active .as{animation:fadeScale .7s ease both;}
+.d1{animation-delay:.1s !important}
+.d2{animation-delay:.22s !important}
+.d3{animation-delay:.34s !important}
+.d4{animation-delay:.46s !important}
+.d5{animation-delay:.58s !important}
+.d6{animation-delay:.7s !important}
+.d7{animation-delay:.82s !important}
+
+/* Slide 1 */
+.s1{text-align:center;max-width:1000px;margin:0 auto;}
+.s1 h1{font-size:clamp(48px,6.5vw,78px);margin-bottom:22px;}
+.s1 .tag{font-size:20px;color:#AAB3C5;max-width:640px;margin:0 auto 26px auto;line-height:1.5;}
+.s1 .sub{font-size:14px;color:#7E879B;letter-spacing:.03em;margin-top:20px;}
+.s1 .prep{font-size:13px;color:#7E879B;margin-top:36px;letter-spacing:.02em;}
+
+.wrap{width:100%;max-width:1180px;margin:0 auto;}
+.stitle{font-size:clamp(32px,4vw,46px);margin-bottom:14px;}
+.slabel{font-size:14px;color:#7E879B;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:10px;}
+
+/* Slide 2 */
+.hero-num{font-size:44px;font-weight:900;color:#F5F7FB;margin-bottom:6px;}
+.hero-num span{background:linear-gradient(135deg,#2E6BFF,#C86DD7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* Slide 3 grid */
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:34px;}
+.metric-card{text-align:center;padding:26px 14px;}
+.metric-card .s5n{font-size:44px;}
+.metric-card p{font-size:13px;color:#AAB3C5;margin-top:4px;}
+.trig-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:22px;}
+.trig{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:8px 16px;font-size:12px;color:#AAB3C5;}
+.clients{font-size:12px;color:#7E879B;text-align:center;letter-spacing:.02em;}
+
+/* Slide 4 */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.grid3 .cp h3{font-size:19px;margin-bottom:10px;}
+.grid3 .cp p{font-size:13.5px;margin-bottom:14px;}
+.proj{font-size:15px;font-weight:800;color:#5EE89A;}
+
+/* Slide 5 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.col-title{font-size:20px;margin-bottom:18px;}
+.bullet-list{list-style:none;}
+.bullet-list li{position:relative;padding-left:22px;margin-bottom:12px;font-size:14.5px;}
+.bullet-list li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#2E6BFF;}
+.col-right .bullet-list li::before{background:#C86DD7;}
+
+/* Slide 6 timeline */
+.timeline{display:flex;flex-direction:column;gap:22px;max-width:820px;margin:0 auto;}
+.tstep{display:flex;align-items:flex-start;gap:22px;}
+.tstep h3{font-size:17px;margin-bottom:4px;}
+.tstep p{font-size:14px;}
+
+/* Slide 7 */
+.s7{text-align:center;max-width:760px;margin:0 auto;}
+.s7 h2{font-size:clamp(30px,4vw,42px);margin-bottom:20px;}
+.contact-card{margin-top:34px;display:inline-block;text-align:left;}
+.contact-card p{font-size:15px;margin-bottom:6px;}
+.contact-card .name{font-size:18px;font-weight:800;color:#F5F7FB;margin-bottom:4px;}
+.conf{margin-top:40px;font-size:12px;color:#7E879B;letter-spacing:.02em;}
+
+/* Chrome */
+.progress{position:fixed;top:0;left:0;height:3px;z-index:1000;background:linear-gradient(90deg,#2E6BFF,#C86DD7,#2E6BFF);background-size:200% auto;animation:shimmer 3s linear infinite;transition:width .6s ease;}
+.fs-btn{position:fixed;top:20px;right:20px;z-index:999;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#7E879B;padding:12px 18px;border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;transition:all .3s ease;backdrop-filter:blur(6px);letter-spacing:.04em;text-transform:uppercase;}
+.fs-btn:hover{background:rgba(255,255,255,.08);color:#F5F7FB;border-color:rgba(46,107,255,.3);}
+.fs-btn svg{width:16px;height:16px;}
+.sc{position:fixed;bottom:36px;left:40px;z-index:998;color:#7E879B;font-size:14px;font-weight:600;letter-spacing:.05em;background:rgba(0,0,0,.3);padding:10px 18px;border-radius:10px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.05);}
+.sc .cn{color:#2E6BFF;font-weight:800;}
+.ind{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:998;display:flex;gap:7px;background:rgba(0,0,0,.3);padding:10px 16px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.05);}
+.ind .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s ease;cursor:pointer;}
+.ind .dot.active{background:#2E6BFF;box-shadow:0 0 14px rgba(46,107,255,.6);width:34px;border-radius:5px;}
+.nav-arr{position:fixed;bottom:32px;right:40px;z-index:998;display:flex;gap:10px;}
+.nav-arr button{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#AAB3C5;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease;backdrop-filter:blur(6px);}
+.nav-arr button:hover{background:rgba(46,107,255,.2);border-color:rgba(46,107,255,.4);color:#fff;transform:scale(1.05);}
+
+@media(max-width:900px){
+  .slide{padding:40px 24px;}
+  .metric-grid,.grid3,.grid2{grid-template-columns:1fr;}
+  .fl{flex-direction:column;}
+  .fa{transform:rotate(90deg);padding-bottom:0;margin:6px 0;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog" style="width:14.28%;"></div>
+<button class="fs-btn" id="fsBtn" onclick="toggleFs()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"></path></svg>
+  <span id="fsTxt">Tela cheia</span>
+</button>
+<div class="sc"><span class="cn" id="cn">1</span> / 7</div>
+<div class="ind" id="ind"></div>
+<div class="nav-arr">
+  <button onclick="prev()">&#8592;</button>
+  <button onclick="next()">&#8594;</button>
+</div>
+
+<div class="presentation">
+  <div class="slides" id="sw">
+
+    <!-- SLIDE 1 -->
+    <section class="slide active">
+      <div class="s1">
+        <div class="badge au d1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+          Proposta Executiva · Grupo SBF / Centauro
+        </div>
+        <h1 class="au d2">Uma mesma <span class="gt">inteligência</span>.<br>Todos os canais.</h1>
+        <p class="tag au d3">Concierge digital · copiloto de venda · recomendação individual — na voz da sua marca.</p>
+        <p class="sub au d4">iungo. Plataforma de Engajamento Hiperpersonalizado</p>
+        <p class="prep au d5">Preparado para: Grupo SBF / Centauro · Iungo Intelligence</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section class="slide">
+      <div class="wrap">
+        <div class="gl au d1"></div>
+        <div class="slabel au d1">O que a iungo faz</div>
+        <h2 class="stitle au d2">Transformamos comportamento de compra em <span class="gt">receita incremental</span></h2>
+        <div class="hero-num au d3">+119% <span>de receita incremental</span> — cliente real, ago/2026</div>
+        <p style="margin-bottom:30px;max-width:700px;" class="au d3">No e-commerce, no app, no SMS/WhatsApp e na loja física.</p>
+
+        <div class="fl au d4">
+          <div class="fs act">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"></path></svg></div>
+            <span>Data Foundation</span>
+          </div>
+          <div class="fa">&#8594;</div>
+          <div class="fs">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 21H3z"></path></svg></div>
+            <span>Intelligence</span>
+          </div>
+          <div class="fa">&#8594;</div>
+          <div class="fs">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg></div>
+            <span>Activation</span>
+          </div>
+          <div class="fa">&#8594;</div>
+          <div class="fs">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"></path></svg></div>
+            <span>Performance</span>
+          </div>
+        </div>
+
+        <p style="margin-top:30px;text-align:center;font-weight:600;color:#8FAEFF;" class="au d5">Diferencial: hiperpersonalização ponta a ponta — assunto, pre-header, copy e vitrine se escrevem sozinhos.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section class="slide">
+      <div class="wrap">
+        <div class="gl au d1"></div>
+        <div class="slabel au d1">Resultados reais</div>
+        <h2 class="stitle au d2">Resultados que já entregamos <span class="gt">no varejo</span></h2>
+        <p style="margin-bottom:26px;" class="au d2">Grupo Azzas — agosto/2026</p>
+
+        <div class="metric-grid au d3">
+          <div class="metric-card card">
+            <div class="s5n" style="color:#2E6BFF;">+94%</div>
+            <p>Farm Rio — incremento 0,78%, quase 4x em 3 meses</p>
+          </div>
+          <div class="metric-card card">
+            <div class="s5n" style="color:#5B3FD6;">+119%</div>
+            <p>🥇 Cris Barros — ticket médio R$ 2.111</p>
+          </div>
+          <div class="metric-card card">
+            <div class="s5n" style="color:#C86DD7;">+59%</div>
+            <p>🥉 Off Premium — +51% conversão, dobrando a base</p>
+          </div>
+          <div class="metric-card card">
+            <div class="s5n gt">10,5x</div>
+            <p>Maria Filó — SMS ROAS · 12,6 sessões/disparo</p>
+          </div>
+        </div>
+
+        <div class="trig-row au d4">
+          <span class="trig">Carrinho</span><span class="trig">Navegação</span><span class="trig">Categoria</span>
+          <span class="trig">Sessão</span><span class="trig">Redução de preço</span><span class="trig">Volta ao estoque</span>
+          <span class="trig">Alerta de tamanho</span><span class="trig">Produtos em alta</span><span class="trig">Pós-compra</span>
+          <span class="trig">Aniversário</span><span class="trig">Recompra</span><span class="trig">Reconquista</span>
+        </div>
+
+        <p class="clients au d5">Clientes atuais: Farm Rio · Animale · Cris Barros · Maria Filó · Off Premium · Fábula · Renner · Camicado · Itaú Shop · Orthocrin</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section class="slide">
+      <div class="wrap">
+        <div class="gl au d1"></div>
+        <div class="slabel au d1">Para o Grupo SBF / Centauro</div>
+        <h2 class="stitle au d2">3 frentes de <span class="gt">impacto imediato</span></h2>
+
+        <div class="grid3 au d3" style="margin-top:30px;">
+          <div class="cp">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg></div>
+            <h3>Loja Física — Copiloto de Venda</h3>
+            <p>Os "atletas" da Centauro ganham na tela: histórico, gosto esportivo, propensão e curadoria por cliente. Ex.: tênis de corrida comprado há 7 meses → alerta de upgrade.</p>
+            <div class="proj">+ conversão e ticket médio via cross-sell</div>
+          </div>
+          <div class="cp">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"></path></svg></div>
+            <h3>E-commerce + App + Marketplace</h3>
+            <p>AI PIM padroniza catálogo (1P+3P+Nike) em todos os formatos. Behavior Triggers ativam recompra, "volta ao estoque" e "produtos em alta" por modalidade.</p>
+            <div class="proj">+0,5-1,0% na receita digital</div>
+          </div>
+          <div class="cp">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path></svg></div>
+            <h3>SMS + WhatsApp</h3>
+            <p>"Camisa da Seleção voltou ao estoque" · "Seu tênis está na hora do upgrade" · "Últimas unidades do tamanho 40"</p>
+            <div class="proj">ROAS projetado 10x+ (validado)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section class="slide">
+      <div class="wrap">
+        <div class="gl au d1"></div>
+        <div class="slabel au d1">A decisão</div>
+        <h2 class="stitle au d2">Por que <span class="gt">iungo</span>, por que agora</h2>
+
+        <div class="grid2 au d3" style="margin-top:26px;">
+          <div class="card col-left">
+            <h3 class="col-title">Por que Iungo</h3>
+            <ul class="bullet-list">
+              <li>Contrato em BRL — protege contra câmbio</li>
+              <li>Usuários ilimitados — sem custo por seat</li>
+              <li>Stack unificada: 1 contrato (PIM+CDP+CRM+Agentes) vs. 4 dos concorrentes</li>
+              <li>Trata catálogo sujo na entrada</li>
+              <li>Copiloto de venda na loja física</li>
+              <li>Já integrado com VTEX e marketplaces</li>
+              <li>Cases sólidos no varejo de moda/esporte no Brasil</li>
+            </ul>
+          </div>
+          <div class="card col-right">
+            <h3 class="col-title">Por que agora</h3>
+            <ul class="bullet-list">
+              <li>Pós-Copa: momento único para recompra e reengajamento</li>
+              <li>Base gigante de clientes esportivos a ser ativada</li>
+              <li>900+ vendedores prontos para vender com apoio de IA</li>
+              <li>Direcionamento do grupo: crescimento e digital</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 -->
+    <section class="slide">
+      <div class="wrap">
+        <div class="gl ce au d1" style="margin-left:auto;margin-right:auto;"></div>
+        <div class="slabel au d1" style="text-align:center;">O caminho</div>
+        <h2 class="stitle au d2" style="text-align:center;">Próximos <span class="gt">passos</span></h2>
+
+        <div class="timeline au d3" style="margin-top:36px;">
+          <div class="tstep">
+            <div class="tn n1">1</div>
+            <div><h3>Alinhamento</h3><p>30 min com Digital (Weltman) + CRM (Victor)</p></div>
+          </div>
+          <div class="tstep">
+            <div class="tn n2">2</div>
+            <div><h3>Piloto mensurável</h3><p>1 categoria (ex: corrida) — 60 dias, ROI mensurável</p></div>
+          </div>
+          <div class="tstep">
+            <div class="tn n3">3</div>
+            <div><h3>Copiloto de venda</h3><p>Implantação em 5 lojas G5</p></div>
+          </div>
+          <div class="tstep">
+            <div class="tn n4">4</div>
+            <div><h3>Ativação pós-Copa</h3><p>Recompra e reengajamento da base esportiva</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 -->
+    <section class="slide">
+      <div class="s7">
+        <div class="gl ce au d1"></div>
+        <h2 class="au d2">Vamos validar o <span class="gt">piloto de 60 dias</span>?</h2>
+        <p class="tag au d3">Iungo Intelligence · plataforma iungo.work · iungo-ai.com</p>
+
+        <div class="contact-card au d4">
+          <p class="name">Fábio Baptistella</p>
+          <p>Gerente Comercial</p>
+          <p>fabio.baptistella@iungo-ai.com</p>
+          <p>(11) 99616-9669</p>
+        </div>
+
+        <p class="conf au d5">Documento confidencial · Iungo Intelligence</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+const T = 7; let C = 0;
+const W = document.getElementById('sw');
+const CN = document.getElementById('cn');
+const P = document.getElementById('prog');
+const I = document.getElementById('ind');
+
+for (let i = 0; i < T; i++) {
+  const d = document.createElement('div');
+  d.classList.add('dot');
+  if (i === 0) d.classList.add('active');
+  d.onclick = () => go(i);
+  I.appendChild(d);
+}
+
+function upd() {
+  I.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === C));
+  CN.textContent = C + 1;
+  P.style.width = ((C + 1) / T * 100) + '%';
+  document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === C));
+}
+
+function go(i) { if (i < 0 || i >= T) return; C = i; W.style.transform = `translateX(-${C * 100}vw)`; upd(); }
+function next() { if (C < T - 1) go(C + 1); }
+function prev() { if (C > 0) go(C - 1); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  if (e.key === 'f' || e.key === 'F') toggleFs();
+});
+
+let tx = 0;
+document.addEventListener('touchstart', e => tx = e.changedTouches[0].screenX);
+document.addEventListener('touchend', e => { const d = tx - e.changedTouches[0].screenX; if (Math.abs(d) > 50) { d > 0 ? next() : prev(); } });
+
+function toggleFs() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+document.addEventListener('fullscreenchange', () => {
+  const btn = document.getElementById('fsTxt');
+  if (btn) btn.textContent = document.fullscreenElement ? 'Sair' : 'Tela cheia';
+});
+
+upd();
+</script>
+</body>
+</html>
+
+
